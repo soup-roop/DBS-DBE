@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <div>
+        <h1>🎓 Student Management System</h1>
+        <p>Spring Boot + MySQL Student Portal</p>
+    </div>
+    <button class="add-btn" onclick="openAddModal()">+ Add Student</button>
+</header>
+
+<main>
+
+    <section class="stats">
+        <div class="stat-card">
+            <h3>Total Students</h3>
+            <p id="totalStudents">0</p>
+        </div>
+
+        <div class="stat-card">
+            <h3>Departments</h3>
+            <p id="totalDepartments">0</p>
+        </div>
+    </section>
+
+    <section class="content-card">
+
+        <div class="toolbar">
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search students..."
+                oninput="searchStudents()"
+            >
+
+            <button onclick="loadStudents()">🔄 Refresh</button>
+        </div>
+
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Department</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+
+                <tbody id="studentTable">
+                </tbody>
+            </table>
+        </div>
+
+    </section>
+
+</main>
+
+<!-- Add/Edit Modal -->
+<div id="studentModal" class="modal">
+
+    <div class="modal-content">
+
+        <span class="close" onclick="closeModal()">&times;</span>
+
+        <h2 id="modalTitle">Add Student</h2>
+
+        <input type="hidden" id="studentId">
+
+        <label>Name</label>
+        <input type="text" id="name" placeholder="Enter student name">
+
+        <label>Email</label>
+        <input type="email" id="email" placeholder="Enter email">
+
+        <label>Department</label>
+        <input type="text" id="department" placeholder="Enter department">
+
+        <button class="save-btn" onclick="saveStudent()">
+            Save Student
+        </button>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
